@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import donorRoutes from "./routes/donorRoutes.js";
+
 
 // Routes
 import authRoutes from './routes/auth.js';
@@ -19,6 +21,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/bloodbank', {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use("/api/donors", donorRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
