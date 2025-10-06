@@ -33,18 +33,17 @@ const DonorForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Get existing donors from localStorage
+
+    // Save to localStorage
     const existingDonors = JSON.parse(localStorage.getItem("donors")) || [];
-
-    // Add new donor
     existingDonors.push(formData);
-
-    // Save back to localStorage
     localStorage.setItem("donors", JSON.stringify(existingDonors));
 
-    // Show success message
+    // Success message + alert
     setMessage("✅ Donor added successfully!");
+    alert("Form submitted successfully!");
 
+    // Reset form fields
     setFormData({
       name: "",
       bloodGroup: "",
@@ -65,11 +64,15 @@ const DonorForm = () => {
       mobileNumber: "",
       email: "",
     });
+
+    // Redirect to Dashboard automatically after a short delay
+    setTimeout(() => navigate("/dashboard"), 800);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-10">
-      <div className="w-full max-w-3xl bg-white p-8 rounded-2xl shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-10 relative">
+      <div className="w-full max-w-3xl bg-white p-8 rounded-2xl shadow-lg relative">
+
         <h2 className="text-3xl font-bold text-center text-red-600 mb-6">
           🩸 Blood Donation Form
         </h2>
@@ -79,11 +82,11 @@ const DonorForm = () => {
             {message}
           </div>
         )}
+
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {/* Name */}
           <input
             type="text"
             name="name"
@@ -94,7 +97,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Blood Group */}
           <input
             type="text"
             name="bloodGroup"
@@ -105,7 +107,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Rh */}
           <select
             name="rhFactor"
             value={formData.rhFactor}
@@ -118,7 +119,6 @@ const DonorForm = () => {
             <option value="-Ve">-Ve</option>
           </select>
 
-          {/* Sex */}
           <select
             name="sex"
             value={formData.sex}
@@ -131,7 +131,6 @@ const DonorForm = () => {
             <option value="Female">Female</option>
           </select>
 
-          {/* HIV */}
           <select
             name="hiv"
             value={formData.hiv}
@@ -144,7 +143,6 @@ const DonorForm = () => {
             <option value="-Ve">-Ve</option>
           </select>
 
-          {/* Weight */}
           <input
             type="text"
             name="weight"
@@ -154,7 +152,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Height */}
           <input
             type="text"
             name="height"
@@ -164,7 +161,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Blood Pressure */}
           <input
             type="text"
             name="bloodPressure"
@@ -174,7 +170,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Donated Earlier */}
           <select
             name="donatedEarlier"
             value={formData.donatedEarlier}
@@ -187,7 +182,6 @@ const DonorForm = () => {
             <option value="No">No</option>
           </select>
 
-          {/* Previous Donation Date */}
           <input
             type="date"
             name="previousDonationDate"
@@ -196,7 +190,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Diseases */}
           <input
             type="text"
             name="diseases"
@@ -206,7 +199,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Spouse Name */}
           <input
             type="text"
             name="spouseName"
@@ -216,7 +208,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Address */}
           <textarea
             name="address"
             placeholder="Address"
@@ -225,7 +216,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500 md:col-span-2"
           ></textarea>
 
-          {/* City */}
           <input
             type="text"
             name="city"
@@ -235,7 +225,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Pin Code */}
           <input
             type="text"
             name="pinCode"
@@ -245,7 +234,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Phone Number */}
           <input
             type="text"
             name="phoneNumber"
@@ -255,7 +243,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Mobile Number */}
           <input
             type="text"
             name="mobileNumber"
@@ -266,7 +253,6 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          {/* Email */}
           <input
             type="email"
             name="email"
@@ -275,14 +261,6 @@ const DonorForm = () => {
             onChange={handleChange}
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500 md:col-span-2"
           />
-
-          {/* Close Button */}
-          <button
-            onClick={() => navigate("/dashboard")}
-            className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-gray-300"
-          >
-            Close
-          </button>
 
           <button
             type="submit"
