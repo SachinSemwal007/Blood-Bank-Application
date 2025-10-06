@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 import { useState } from "react";
 import {
   Droplet,
@@ -13,6 +21,7 @@ import {
 } from "lucide-react";
 import DonorForm from "./DonorForm";
 import ProfilesTable from "../components/DonorList";
+import { assest } from "../assets/asset";
 
 function Dashboard() {
   const [centers, setCenters] = useState([
@@ -48,8 +57,10 @@ function Dashboard() {
           {/* Logo */}
           <div className="p-6 border-b border-red-600">
             <div className="flex items-center gap-3">
-              <div className="bg-white rounded-full p-2">
-                <Droplet className="w-6 h-6 text-red-600" fill="currentColor" />
+              <div className="bg-white rounded-full flex justify-center">
+                <img
+                  className="w-8 h-8 sm:w-8 sm:h-8"
+                  src={assest.HandLogo} alt="" />
               </div>
               <div>
                 <h2 className="font-bold text-lg">Blood Bank</h2>
@@ -127,9 +138,8 @@ function Dashboard() {
               </button>
               <div>
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
-                  Dashboard
+                  Welcome Admin
                 </h1>
-                <p className="text-sm text-gray-500">Welcome back, Admin</p>
               </div>
             </div>
 
@@ -154,11 +164,24 @@ function Dashboard() {
         </header>
 
         {/* Main Content Area */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 relative">
+
+<div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
+  <div className="relative rounded-full border-4 border-red-600 p-4 sm:p-8 opacity-45">
+    <img
+      src={assest.HandLogo}
+      alt="Watermark"
+      className="w-64 h-64 sm:w-96 sm:h-96 opacity-15"
+    />
+  </div>
+</div>
+
+
+
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 relative z-10">
             {/* Total Centers */}
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-red-600">
+            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-red-600">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-500 text-sm font-medium">
@@ -175,7 +198,7 @@ function Dashboard() {
             </div>
 
             {/* Total Donors */}
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-600">
+            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-blue-600">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-500 text-sm font-medium">
@@ -192,7 +215,7 @@ function Dashboard() {
             </div>
 
             {/* Active Today */}
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-600">
+            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-green-600">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-500 text-sm font-medium">
@@ -210,7 +233,7 @@ function Dashboard() {
             </div>
 
             {/* Pending */}
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-purple-600">
+            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-purple-600">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-500 text-sm font-medium">Pending</p>
@@ -224,7 +247,7 @@ function Dashboard() {
           </div>
 
           {/* Add Center */}
-          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 mb-6 sm:mb-8">
+          <div className="bg-white/10 rounded-xl shadow-md p-4 sm:p-6 mb-6 sm:mb-8 relative z-10">
             <div className="flex items-center gap-2 mb-4">
               <Building2 className="w-5 h-5 text-red-600" />
               <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
@@ -250,7 +273,7 @@ function Dashboard() {
           </div>
 
           {/* Centers Grid */}
-          <div>
+          <div className="relative z-10">
             <div className="flex items-center gap-2 mb-4 sm:mb-6">
               <Building2 className="w-6 h-6 text-red-600" />
               <h2 className="text-xl sm:text-2xl font-bold text-gray-800">

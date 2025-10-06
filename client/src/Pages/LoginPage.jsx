@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { Droplet, Heart } from "lucide-react";
 import { assest } from '../assets/asset';
+import SimpleCarousel from '../components/SimpleCarousel';
+
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -47,42 +49,51 @@ function LoginPage() {
           
           {/* Left Section - Quote and Image */}
           <div className="flex flex-col h-full justify-between space-y-4 sm:space-y-6 md:space-y-8">
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl flex-grow min-h-[200px] sm:min-h-[250px]">
-              <div className="bg-gradient-to-br from-red-500 to-pink-600 h-full flex items-center justify-center">
-                <div className="text-center text-white p-4 sm:p-6 md:p-8">
-                  <Droplet className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-2 sm:mb-4 opacity-90" fill="currentColor" />
-                  <Heart className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto animate-pulse" fill="currentColor" />
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
+                <SimpleCarousel
+                  className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl flex-grow h-72 sm:h-80 md:h-116"
+                  images={[
+                    assest.image1,
+                    assest.image2,
+                    assest.image3,
+                    assest.image4
+                  ]}
+                  interval={3000}
+                />
 
-            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 border-b-4 border-red-600 flex-grow">
-              <div className="flex items-start space-x-3 sm:space-x-4">
-                <div className="bg-red-100 rounded-full p-2 sm:p-3 flex-shrink-0">
-                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">
-                    "रक्तदान महादान"
-                  </h3>
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-2 sm:mb-4">
-                    "एक यूनिट रक्त, कई जीवन बचा सकता है।"
-                  </p>
-                  <p className="text-gray-700 font-medium text-sm sm:text-base">
-                    Join us in saving lives. Every drop counts, every donor matters.
-                  </p>
-                </div>
-              </div>
-            </div>
+
+            <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 border-b-8 border-red-600 flex flex-col justify-center flex-grow h-72 sm:h-80 md:h-96 transition-all duration-500 hover:scale-[1.02]">
+  <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
+    <div className="bg-red-100 rounded-full p-4 sm:p-5 flex-shrink-0">
+      <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-red-600" />
+    </div>
+
+    <div>
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+        रक्तदान महादान
+      </h3>
+
+      <p className="text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed mb-3 sm:mb-4">
+        एक यूनिट रक्त, कई जीवन बचा सकता है।
+      </p>
+
+      <p className="text-gray-700 font-semibold text-base sm:text-lg md:text-xl">
+        Join us in saving lives. Every drop counts, every donor matters.
+      </p>
+    </div>
+  </div>
+</div>
+
+
           </div>
 
           {/* Right Section - Login Form */}
           <div className="bg-white shadow-2xl rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border-t-4 border-red-700 flex flex-col justify-between h-full">
             <div className="text-center mb-6 sm:mb-8">
-              <div className="bg-red-100 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Droplet className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" />
-              </div>
+                        <div className="bg-white rounded-full flex justify-center">
+              <img
+                className="w-8 h-8 sm:w-8 sm:h-8"
+                src={assest.HandLogo} alt="" />
+            </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
                 Admin Login
               </h2>
