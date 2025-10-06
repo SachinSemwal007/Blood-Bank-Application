@@ -1,6 +1,6 @@
 import { useState } from "react";
-import DonorForm from "./components/DonorForm";
-import ProfilesTable from "./components/ProfilesTable";
+import DonorForm from "../components/DonorForm";
+import ProfilesTable from "../components/ProfilesTable";
 
 function Dashboard() {
   const [centers, setCenters] = useState([{ id: 1, name: "Central Blood Bank", donors: [] }]);
