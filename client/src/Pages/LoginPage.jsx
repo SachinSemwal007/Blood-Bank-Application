@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { Droplet, Heart, Activity } from "lucide-react";
+// just for checking the commits
 
 function LoginPage() {
   const [username, setUsername] = useState("");
