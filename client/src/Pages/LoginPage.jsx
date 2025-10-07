@@ -24,6 +24,16 @@ function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-red-50 flex flex-col">
       {/* Header/Navbar */}
+
+       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+      <img
+        src={assest.HandLogo}
+        alt="Watermark"
+        className="w-72 sm:w-96 md:w-[28rem] opacity-10"
+      />
+    </div>
+
+
       <div className="bg-gradient-to-r from-red-700 via-red-800 to-red-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-center gap-2 sm:gap-3">
           <div className="flex items-center space-x-2 sm:space-x-3">
@@ -61,7 +71,8 @@ function LoginPage() {
                 />
 
 
-            <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 border-b-8 border-red-600 flex flex-col justify-center flex-grow h-72 sm:h-80 md:h-96 transition-all duration-500 hover:scale-[1.02]">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 border-b-8 border-red-600 flex flex-col justify-center flex-grow h-72 sm:h-80 md:h-96 transition-all 
+            ">
   <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
     <div className="bg-red-100 rounded-full p-4 sm:p-5 flex-shrink-0">
       <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-red-600" />
@@ -87,7 +98,8 @@ function LoginPage() {
           </div>
 
           {/* Right Section - Login Form */}
-          <div className="bg-white shadow-2xl rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border-t-4 border-red-700 flex flex-col justify-between h-full">
+          {/* Right Section - Login Form */}
+          <div className="bg-white shadow-2xl rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border-t-4 border-red-700 flex flex-col justify-between h-full ml-[10%] transition-all duration-300">
             <div className="text-center mb-6 sm:mb-8">
                         <div className="bg-white rounded-full flex justify-center">
               <img

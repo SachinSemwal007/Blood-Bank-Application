@@ -166,25 +166,22 @@ function Dashboard() {
         {/* Main Content Area */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 relative">
 
-<div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
-  <div className="relative rounded-full border-4 border-red-600 p-4 sm:p-8 opacity-45">
-    <img
-      src={assest.HandLogo}
-      alt="Watermark"
-      className="w-64 h-64 sm:w-96 sm:h-96 opacity-15"
-    />
-  </div>
+         <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
+  <img
+    src={assest.HandLogo}
+    alt="Watermark"
+    className="w-64 h-64 sm:w-[500px] sm:h-[500px] opacity-25"
+  />
 </div>
-
 
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 relative z-10">
             {/* Total Centers */}
-            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-red-600">
+            <div className="bg-white/70 rounded-xl shadow-md p-6 border-l-4 border-red-600">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-500 text-sm font-medium">
+                  <p className="text-gray-500 text-lg font-medium">
                     Total Centers
                   </p>
                   <p className="text-3xl font-bold text-gray-800 mt-1">
@@ -198,10 +195,10 @@ function Dashboard() {
             </div>
 
             {/* Total Donors */}
-            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-blue-600">
+            <div className="bg-white/70 rounded-xl shadow-md p-6 border-l-4 border-blue-600">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-500 text-sm font-medium">
+                  <p className="text-gray-500 text-lg font-medium">
                     Total Donors
                   </p>
                   <p className="text-3xl font-bold text-gray-800 mt-1">
@@ -215,10 +212,10 @@ function Dashboard() {
             </div>
 
             {/* Active Today */}
-            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-green-600">
+            <div className="bg-white/70 rounded-xl shadow-md p-6 border-l-4 border-green-600">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-500 text-sm font-medium">
+                  <p className="text-gray-500 text-lg font-medium">
                     Active Today
                   </p>
                   <p className="text-3xl font-bold text-gray-800 mt-1">0</p>
@@ -233,10 +230,10 @@ function Dashboard() {
             </div>
 
             {/* Pending */}
-            <div className="bg-white/10 rounded-xl shadow-md p-6 border-l-4 border-purple-600">
+            <div className="bg-white/70 rounded-xl shadow-md p-6 border-l-4 border-purple-600">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-500 text-sm font-medium">Pending</p>
+                  <p className="text-gray-500 text-lg font-medium">Pending</p>
                   <p className="text-3xl font-bold text-gray-800 mt-1">0</p>
                 </div>
                 <div className="bg-purple-100 rounded-full p-3">
