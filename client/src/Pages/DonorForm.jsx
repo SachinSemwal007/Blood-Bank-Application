@@ -72,7 +72,6 @@ const DonorForm = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-10 relative">
       <div className="w-full max-w-3xl bg-white p-8 rounded-2xl shadow-lg relative">
-
         <h2 className="text-3xl font-bold text-center text-red-600 mb-6">
           🩸 Blood Donation Form
         </h2>
@@ -97,22 +96,26 @@ const DonorForm = () => {
             className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
           />
 
-          <input
-            type="text"
+          <select
             name="bloodGroup"
-            placeholder="Blood Group"
             value={formData.bloodGroup}
             onChange={handleChange}
             required
-            className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
-          />
+            className="border p-3 rounded-md focus:ring-2 focus:ring-red-500 flex-1"
+          >
+            <option value="">Select Blood Group</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+          </select>
 
           <select
             name="rhFactor"
             value={formData.rhFactor}
             onChange={handleChange}
             required
-            className="border p-3 rounded-md focus:ring-2 focus:ring-red-500"
+            className="border p-3 rounded-md focus:ring-2 focus:ring-red-500 flex-1"
           >
             <option value="">Select Rh Factor</option>
             <option value="+Ve">+Ve</option>
