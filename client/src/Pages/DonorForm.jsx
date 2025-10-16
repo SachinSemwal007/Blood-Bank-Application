@@ -25,6 +25,7 @@ const DonorForm = () => {
   });
 
   const [message, setMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false); // For mid-screen alert
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,9 +40,12 @@ const DonorForm = () => {
     existingDonors.push(formData);
     localStorage.setItem("donors", JSON.stringify(existingDonors));
 
-    // Success message + alert
+    // Success message
     setMessage("✅ Donor added successfully!");
-    alert("Form submitted successfully!");
+    setShowAlert(true); // show alert
+
+    // Hide alert after 2 seconds
+    setTimeout(() => setShowAlert(false), 2000);
 
     // Reset form fields
     setFormData({
@@ -65,12 +69,23 @@ const DonorForm = () => {
       email: "",
     });
 
-    // Redirect to Dashboard automatically after a short delay
+    // Redirect to Dashboard after short delay
     setTimeout(() => navigate("/dashboard"), 800);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-10 relative">
+      {/* ✅ Mid-screen Success Alert */}
+      {showAlert && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50">
+          <div className="bg-white px-10 py-6 rounded-xl shadow-2xl border border-green-500 animate-fadeIn">
+            <h3 className="text-green-600 text-2xl font-semibold text-center">
+              Donor Added Successfully!
+            </h3>
+          </div>
+        </div>
+      )}
+
       <div className="w-full max-w-3xl bg-white p-8 rounded-2xl shadow-lg relative">
         <h2 className="text-3xl font-bold text-center text-red-600 mb-6">
           🩸 Blood Donation Form
@@ -86,6 +101,7 @@ const DonorForm = () => {
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
+          {/* existing fields unchanged */}
           <input
             type="text"
             name="name"

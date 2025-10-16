@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        delius: ['"Delius"', 'cursive'],
+        Inconsolata:["Inconsolata", 'monospace']
+      },
+    },
   },
   plugins: [],
 };

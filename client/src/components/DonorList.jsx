@@ -93,7 +93,6 @@ const DonorList = () => {
     </div>
   </div>
 )}
-
     </div>
   );
 };
